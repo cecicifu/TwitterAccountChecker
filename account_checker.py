@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.proxy import ProxyType
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
 import random
@@ -87,7 +88,7 @@ if __name__ == "__main__":
                 "httpProxy": proxy,
                 "ftpProxy": proxy,
                 "sslProxy": proxy,
-                "proxyType": "MANUAL",
+                "proxyType": ProxyType.MANUAL,
             }
             webdriver.DesiredCapabilities.CHROME['acceptSslCerts'] = True
 
