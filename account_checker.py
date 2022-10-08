@@ -15,7 +15,6 @@ import logging
 import random
 import requests
 import argparse
-# from crontab import CronTab
 
 
 parser = argparse.ArgumentParser()
