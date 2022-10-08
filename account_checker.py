@@ -16,6 +16,7 @@ import random
 import requests
 import argparse
 
+logging.basicConfig(filename="account_checker.log", level=logging.INFO)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-U", "--username", required=True)
@@ -59,7 +60,7 @@ def check_account():
             print('The account "%s" doesn\'t exists' % args.username)
 
     except NoSuchElementException:
-        logging.warn('Element not found')
+        logging.info('Element not found')
 
     except TimeoutException:
         logging.warn("TimeoutException")
@@ -99,10 +100,10 @@ if __name__ == "__main__":
 
         check_account()
     except WebDriverException:
-        logging.exception("WebDriverException")
+        logging.critical("WebDriverException")
 
     except KeyboardInterrupt:
         logging.warn("Interrupted by user..")
 
     except Exception as e:
-        logging.exception("Unexpected exception %s" % e)
+        logging.critical("Unexpected exception %s" % e)
